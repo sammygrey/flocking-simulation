@@ -110,9 +110,12 @@ class Boid{
     return steering
   }
 
+  //take in other vector compute angle between
   angle(other){
     let a = degrees(this.position.angleBetween(other.position))
+    //space in which it cannot detect other stuff
     let x = (360 - this.angle)/2
+    //converts to 360 degree scale
     if(a < 0){
         a *= -1
       }
@@ -120,7 +123,9 @@ class Boid{
       a *= -1
       a += 360
     }
+    //flips angle to correct area
     a += 90
+    //limits to 360 degrees
     a.limit(360)
 
   }
