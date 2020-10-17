@@ -112,6 +112,7 @@ class Boid{
 
   angle(other){
     let a = degrees(this.position.angleBetween(other.position))
+    let x = (360 - this.angle)/2
     if(a < 0){
         a *= -1
       }
@@ -119,6 +120,7 @@ class Boid{
       a *= -1
       a += 360
     }
+    a += 90
     a.limit(360)
 
   }
