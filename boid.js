@@ -49,7 +49,6 @@ class Boid{
       steering.setMag(this.maxSpeed)
       steering.sub(this.velocity)
       steering.limit(this.maxForce)
-      console.log('a')
     }
     return steering;
   }

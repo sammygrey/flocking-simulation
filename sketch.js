@@ -4,20 +4,33 @@ let alignSlider, cohesionSlider, separationSlider, perceptionRadius
 
 function setup(){
     createCanvas(1280,720)
-    alignmentLabel = createDiv('Alignment')
+    createDiv()
+    alignmentLabel = createSpan('Alignment')
+    cohesionLabel = createSpan('Cohesion')
+    separationLabel = createSpan('Separation')
+    //perceptionLabel = createSpan('Perception Angle')
+    perceptionLabel = createSpan('Perception Radius')
+    createDiv()
     alignmentSlider = createSlider(0, 2, 1, 0.1)
-    cohesionLabel = createDiv('Cohesion')
     cohesionSlider = createSlider(0, 2, 1, 0.1)
-    separationLabel = createDiv('Separation')
     separationSlider = createSlider(0, 2, 1, 0.1)
-    //perceptionLabel = createDiv('Perception Angle')
     //perceptionSlider = createSlider(0, 180, 90, 5)
-    perceptionLabel = createDiv('Perception Radius')
     perceptionRadiusSlider = createSlider(0, 200, 100, 10)
     trailBox = createCheckbox('Trails', false)
+    resetButton = createButton('Reset')
+    resetButton.mouseClicked(reset)
+    makeBoids() 
+}
+
+function makeBoids(){
     for (let i = 0; i < 100; i++){
-    boids.push(new Boid())
+        boids.push(new Boid())
     }
+}
+
+function reset(){
+    boids.splice(0,boids.length)
+    makeBoids()
 }
 
 function draw(){
