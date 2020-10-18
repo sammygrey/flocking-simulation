@@ -7,7 +7,7 @@ class Boid{
     this.velocity.setMag(random(2, 4))
     this.acceleration = createVector()
     this.perceptionRadius = perceptionRadiusSlider.value()
-    this.angle = perceptionSlider.value()
+    //this.angle = perceptionSlider.value()
     this.r = 3
     this.maxForce = .1
     this.maxSpeed = 10
@@ -29,8 +29,6 @@ class Boid{
 
   //fix visual radius to allow an angle without visual
   //add flake
-  //x = (360 - this.angle)/2
-  // 
   align(boids){
     let steering = createVector()
     let total = 0
@@ -41,8 +39,7 @@ class Boid{
         other.position.x,
         other.position.y
       )
-      let a = abs(degrees(this.position.angleBetween(other.position)))
-      if (other != this && d < this.perceptionRadius && a < this.angle){
+      if (other != this && d < this.perceptionRadius){
         steering.add(other.velocity)
         total++
       }
@@ -67,8 +64,7 @@ class Boid{
         other.position.x,
         other.position.y
       )
-      let a = abs(degrees(this.position.angleBetween(other.position)))
-      if (other != this && d < this.perceptionRadius && a < this.angle){
+      if (other != this && d < this.perceptionRadius){
         let diff = p5.Vector.sub(this.position, other.position)
         diff.div(d * d)
         steering.add(diff)
@@ -94,8 +90,7 @@ class Boid{
         other.position.x,
         other.position.y
       )
-      let a = abs(degrees(this.position.angleBetween(other.position)))
-      if (other != this && d < this.perceptionRadius && a < this.angle){
+      if (other != this && d < this.perceptionRadius){
         steering.add(other.position)
         total++
       }
@@ -138,7 +133,7 @@ class Boid{
     alignment.mult(alignmentSlider.value())
     cohesion.mult(cohesionSlider.value())
     separation.mult(separationSlider.value())
-    this.angle = perceptionSlider.value()
+    //this.angle = perceptionSlider.value()
     this.perceptionRadius = perceptionRadiusSlider.value()
 
     this.acceleration.add(alignment)
