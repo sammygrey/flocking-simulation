@@ -3,22 +3,36 @@ const boids = []
 let alignSlider, cohesionSlider, separationSlider, perceptionRadius
 
 function setup(){
-    createCanvas(1280,720)
-    createDiv()
+    var canvas = createCanvas(1280,720)
+    canvas.parent('sketch-div')
     alignmentLabel = createSpan('Alignment')
+    alignmentLabel.parent('labels')
     cohesionLabel = createSpan('Cohesion')
+    cohesionLabel.parent('labels')
     separationLabel = createSpan('Separation')
-    //perceptionLabel = createSpan('Perception Angle')
-    perceptionLabel = createSpan('Perception Radius')
-    createDiv()
+    separationLabel.parent('labels')
+    //perceptionAngleLabel = createSpan('Perception Angle')
+    //perceptionAngleLabel.parent('labels')
+    perceptionRadiusLabel = createSpan('Perception Radius')
+    perceptionRadiusLabel.parent('labels')
+
     alignmentSlider = createSlider(0, 2, 1, 0.1)
+    alignmentSlider.parent('sliders')
     cohesionSlider = createSlider(0, 2, 1, 0.1)
+    cohesionSlider.parent('sliders')
     separationSlider = createSlider(0, 2, 1, 0.1)
-    //perceptionSlider = createSlider(0, 180, 90, 5)
+    separationSlider.parent('sliders')
+    //perceptionAngleSlider = createSlider(0, 180, 90, 5)
+    //perceptionAngleSlider.parent('sliders')
     perceptionRadiusSlider = createSlider(0, 200, 100, 10)
-    trailBox = createCheckbox('Trails', false)
+    perceptionRadiusSlider.parent('sliders')
+
+    trailBox = createCheckbox('Trails (Dont work right now)', false)
+    trailBox.parent('checkBoxes')
     resetButton = createButton('Reset')
+    resetButton.parent('buttons')
     resetButton.mouseClicked(reset)
+    resetButton.size(100,AUTO)
     makeBoids() 
 }
 
@@ -40,5 +54,6 @@ function draw(){
         boid.flock(boids)
         boid.update()
         boid.show()
+        //boid.showTrail()
     }
 }

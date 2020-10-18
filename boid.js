@@ -104,6 +104,7 @@ class Boid{
     return steering
   }
 
+  // FIX LATER
   //take in other vector compute angle between
   angle(other){
     let a = degrees(this.position.angleBetween(other.position))
@@ -141,9 +142,9 @@ class Boid{
   }
 
   update(){
-    //if(trailBox.checked() == true){
-      //this.history.push(this.position.x, this.position.y)
-    //}
+    if(trailBox.checked() == true){
+      this.history.push(this.position.x, this.position.y)
+    }
     this.position.add(this.velocity)
     this.velocity.add(this.acceleration)
     this.velocity.limit(this.maxSpeed)
@@ -155,15 +156,6 @@ class Boid{
     //push to start drawing state, pop to end
     //translate moves drawing position from origin (top of screen) to specified pos
     let theta = this.velocity.heading() + radians(90)
-   // stroke(200)
-   // beginShape()
-   // for (let i = 0; i < this.history.length; i++){
-     // let pos = this.history[i]
-     // noFill()
-      //vertex(pos.x, pos.y)
-     // endShape()
-    //}
-    //this.history.pop()
 
     push()
     fill(255)
@@ -176,6 +168,21 @@ class Boid{
     vertex(this.r, this.r * 2)
     endShape(CLOSE)
     pop()
-    stroke(255)
+  }
+
+  showTrail(){
+    if(this.history.length > 5){
+      push()
+      stroke(200)
+      beginShape()
+      for (let i = 0; i < this.history.length; i++){
+        let pos = this.history[i]
+        noFill()
+        vertex(pos.x, pos.y)
+        endShape()
+      }
+      this.history.pop()
+      pop()
+    }
   }
 }

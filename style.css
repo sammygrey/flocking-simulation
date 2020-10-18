@@ -1,0 +1,56 @@
+button{
+    border-style: solid;
+    border-color: red;
+    color: red;
+    padding: 15px, 32px;
+    cursor: pointer;
+    background-color: white;
+}
+
+button:active{
+    border-style: solid;
+    border-color: red;
+}
+
+span{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+#sketch-div{
+    display:flex;
+    align-items: center;
+    justify-content: center; 
+}
+
+#labels{
+    display:flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#sliders{
+    display:flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+#buttons, #checkBoxes{
+    padding: 10px;
+    justify-content:flex-start;
+    margin-left: 300px;
+}
+input[type=range]{
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 50px;
+    margin-right: 50px;
+}
