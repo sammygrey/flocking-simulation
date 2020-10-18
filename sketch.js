@@ -5,15 +5,15 @@ let alignSlider, cohesionSlider, separationSlider, perceptionRadius
 function setup(){
     var canvas = createCanvas(1280,720)
     canvas.parent('sketch-div')
-    alignmentLabel = createSpan('Alignment')
+    alignmentLabel = createSpan('Alignment:')
     alignmentLabel.parent('labels')
-    cohesionLabel = createSpan('Cohesion')
+    cohesionLabel = createSpan('Cohesion:')
     cohesionLabel.parent('labels')
-    separationLabel = createSpan('Separation')
+    separationLabel = createSpan('Separation:')
     separationLabel.parent('labels')
-    //perceptionAngleLabel = createSpan('Perception Angle')
+    //perceptionAngleLabel = createSpan('Perception Angle:')
     //perceptionAngleLabel.parent('labels')
-    perceptionRadiusLabel = createSpan('Perception Radius')
+    perceptionRadiusLabel = createSpan('Perception Radius:')
     perceptionRadiusLabel.parent('labels')
 
     alignmentSlider = createSlider(0, 2, 1, 0.1)
@@ -27,12 +27,13 @@ function setup(){
     perceptionRadiusSlider = createSlider(0, 200, 100, 10)
     perceptionRadiusSlider.parent('sliders')
 
-    trailBox = createCheckbox('Trails (Dont work right now)', false)
-    trailBox.parent('checkBoxes')
+    //trailBox = createCheckbox('Trails')
+    //trailBox.parent('checkBoxes')
     resetButton = createButton('Reset')
     resetButton.parent('buttons')
     resetButton.mouseClicked(reset)
     resetButton.size(100,AUTO)
+    
     makeBoids() 
 }
 

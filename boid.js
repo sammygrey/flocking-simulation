@@ -142,9 +142,9 @@ class Boid{
   }
 
   update(){
-    if(trailBox.checked() == true){
-      this.history.push(this.position.x, this.position.y)
-    }
+    //if(trailBox.checked() == true){
+      //this.history.push(this.position.x, this.position.y)
+    //}
     this.position.add(this.velocity)
     this.velocity.add(this.acceleration)
     this.velocity.limit(this.maxSpeed)
@@ -178,7 +178,7 @@ class Boid{
       for (let i = 0; i < this.history.length; i++){
         let pos = this.history[i]
         noFill()
-        vertex(pos.x, pos.y)
+        vertex(pos[0], pos[1])
         endShape()
       }
       this.history.pop()

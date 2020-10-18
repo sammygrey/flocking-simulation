@@ -4,12 +4,13 @@
 
 <head>
     <meta charset="UTF-8"/>
-    <title>flocking</title>
+    <title>Flocking Simulation</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.min.js"></script>
 </head>
 
 <body>
+    <section>
     <main>
         <script src="boid.js"></script>
         <script src="sketch.js"></script>
@@ -20,6 +21,48 @@
         <div id="checkBoxes"></div>
         <div id="buttons"></div>
     </main>
+    </section>
+
+    <section id="text">
+        <h1>What are boids?</h1>
+        <p>
+        Boids is term short for a bird-like-objects and is used in reference to simple flocking algorithms. A boid has
+        3 main traits that determine how it moves in reference to other boids: coherence/cohesion, separation/avoidance, and alignment.
+        </p>
+        <h2>Cohesion:</h2>
+        <p>
+        Cohesion/Coherence is the property of how boids group to a center of mass (average position of all boids). A lower
+        cohesion value will result in boids moving to the center of mass slower, while a higher cohesion value speeds up this
+        process. The end result of Cohesion is one large group of boids with no outliers.
+        </p>
+        <h2>Separation:</h2>
+        <p>
+            Separation/Avoidance is the property of how boids stay away from one another. While cohesion groups boids together into
+            one mass separation creates empty space between each boid to allow for easy recognition of individual boids. A lower
+            separation value will result in less empty space between boids, while a higher separation value will result in more
+            empty space. Separation is not a strict boundary. Boids will not be blocked from crashing into each other or entering
+            the empty space set by separation. Instead the boids’ velocities will change to move away from each other in the
+            instance that they are too close.
+        </p>
+        <h2>Alignment:</h2>
+        <p>
+            Alignment is the property that allows boids to steer near the local heading of the group. This is similar to cohesion as
+            it groups boids in a similar direction, however it utilizes the visual range of each boid to determine the direction its
+            nearest neighbors are moving in. A higher visual range and alignment value will result in the speeding up of this
+            process while a lower visual range and alignment value will make it occur more slowly. The end result of this process is
+            boid group members moving in a similar direction.
+        </p>
+        <p>
+            For more about boids read the original paper detailing boids and their behaviors published by Craig Reynolds in 1987<a href="http://www.cs.toronto.edu/~dt/siggraph97-course/cwr87/">HERE</a> or watch
+            the original simulation created by Craig Reynolds <a href="https://www.youtube.com/watch?v=bqtqltqcQhw">HERE</a>.
+        </p>
+    </section>
+
+    <section>
+        <footer>
+            guiisgooey 2020, <a href="https://github.com/guiisgooey/flocking-simulation">github repository,</a> made with <a href="https://p5js.org/"><img src="p5.png" width="50px" height="auto"></a>
+        </footer>
+    </section>
 </body>
 
 </html>
