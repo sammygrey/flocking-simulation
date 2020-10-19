@@ -2,6 +2,7 @@
 
 class Boid{
   constructor(){
+    //constructs new boid object
     this.position = createVector(random(width), random(height))
     this.velocity = p5.Vector.random2D()
     this.velocity.setMag(random(2, 4))
@@ -15,6 +16,7 @@ class Boid{
   }
 
   edges(){
+    //allows boids to wrap around the screen
     if (this.position.x > width){
       this.position.x = 0
     } else if (this.position.x < 0){
@@ -30,6 +32,7 @@ class Boid{
   //fix visual radius to allow an angle without visual
   //add flake
   align(boids){
+    //alignment algorithm for boids in relation to other boids within perception radius
     let steering = createVector()
     let total = 0
     for (let other of boids){
@@ -54,6 +57,7 @@ class Boid{
   }
 
   separation(boids){
+    //separation algorithm for boids in relation to other boids within perception radius
     let steering = createVector()
     let total = 0
     for (let other of boids){
@@ -80,6 +84,7 @@ class Boid{
   }
 
   cohesion(boids){
+    //cohesion algorithm for boids in relation to other boids within perception radius
     let steering = createVector()
     let total = 0
     for (let other of boids){
@@ -105,8 +110,8 @@ class Boid{
   }
 
   // FIX LATER
-  //take in other vector compute angle between
   angle(other){
+    //take in other vector compute angle between
     let a = degrees(this.position.angleBetween(other.position))
     //space in which it cannot detect other stuff
     let x = (360 - this.angle)/2
@@ -126,6 +131,8 @@ class Boid{
   }
 
   flock(boids){
+    //changes acceleration value based on alignment,cohesion,separation algorithms
+    //changes alignment,cohesion,separation values based on sliders
     let alignment = this.align(boids)
     let cohesion = this.cohesion(boids)
     let separation = this.separation(boids)
@@ -153,7 +160,7 @@ class Boid{
 
   //trails dont work, figure out later
   show(){
-    //push to start drawing state, pop to end
+    //draws each boid based on its vector location and angle
     //translate moves drawing position from origin (top of screen) to specified pos
     let theta = this.velocity.heading() + radians(90)
 
@@ -170,6 +177,8 @@ class Boid{
     pop()
   }
 
+
+  //doesn't work, fix later
   showTrail(){
     if(this.history.length > 5){
       push()
