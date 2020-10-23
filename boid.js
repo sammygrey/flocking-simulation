@@ -8,7 +8,7 @@ class Boid{
     this.velocity.setMag(random(2, 4))
     this.acceleration = createVector()
     this.perceptionRadius = perceptionRadiusSlider.value()
-    //this.angle = perceptionSlider.value()
+    //this.angle = perceptionAngleSlider.value()
     this.r = 3
     this.maxForce = .1
     this.maxSpeed = 10
@@ -42,6 +42,8 @@ class Boid{
         other.position.x,
         other.position.y
       )
+      //let a = abs(degrees(this.position.angleBetween(other.position)))
+      //&& a < this.angle
       if (other != this && d < this.perceptionRadius){
         steering.add(other.velocity)
         total++
@@ -109,27 +111,6 @@ class Boid{
     return steering
   }
 
-  // FIX LATER
-  angle(other){
-    //take in other vector compute angle between
-    let a = degrees(this.position.angleBetween(other.position))
-    //space in which it cannot detect other stuff
-    let x = (360 - this.angle)/2
-    //converts to 360 degree scale
-    if(a < 0){
-        a *= -1
-      }
-    else{
-      a *= -1
-      a += 360
-    }
-    //flips angle to correct area
-    a += 90
-    //limits to 360 degrees
-    a.limit(360)
-
-  }
-
   flock(boids){
     //changes acceleration value based on alignment,cohesion,separation algorithms
     //changes alignment,cohesion,separation values based on sliders
@@ -146,6 +127,10 @@ class Boid{
     this.acceleration.add(alignment)
     this.acceleration.add(cohesion)
     this.acceleration.add(separation)
+  }
+
+  checkCollision(){
+
   }
 
   update(){
