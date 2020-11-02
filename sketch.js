@@ -11,8 +11,6 @@ function setup(){
     cohesionLabel.parent('labels')
     separationLabel = createSpan('Separation:')
     separationLabel.parent('labels')
-    //perceptionAngleLabel = createSpan('Perception Angle:')
-    //perceptionAngleLabel.parent('labels')
     perceptionRadiusLabel = createSpan('Perception Radius:')
     perceptionRadiusLabel.parent('labels')
 
@@ -22,13 +20,14 @@ function setup(){
     cohesionSlider.parent('sliders')
     separationSlider = createSlider(0, 2, 1, 0.1)
     separationSlider.parent('sliders')
-    //perceptionAngleSlider = createSlider(0, 180, 90, 5)
-    //perceptionAngleSlider.parent('sliders')
     perceptionRadiusSlider = createSlider(0, 200, 100, 10)
     perceptionRadiusSlider.parent('sliders')
 
     //trailBox = createCheckbox('Trails')
     //trailBox.parent('checkBoxes')
+    //cursorBox = createCheckbox('Center to cursor')
+    //cursorBox.parent('checkBoxes')
+    
     resetButton = createButton('Reset')
     resetButton.parent('buttons')
     resetButton.mouseClicked(reset)

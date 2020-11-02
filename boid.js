@@ -8,7 +8,6 @@ class Boid{
     this.velocity.setMag(random(2, 4))
     this.acceleration = createVector()
     this.perceptionRadius = perceptionRadiusSlider.value()
-    //this.angle = perceptionAngleSlider.value()
     this.r = 3
     this.maxForce = .1
     this.maxSpeed = 10
@@ -42,8 +41,6 @@ class Boid{
         other.position.x,
         other.position.y
       )
-      //let a = abs(degrees(this.position.angleBetween(other.position)))
-      //&& a < this.angle
       if (other != this && d < this.perceptionRadius){
         steering.add(other.velocity)
         total++
