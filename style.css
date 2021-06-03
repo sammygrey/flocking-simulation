@@ -1,94 +1,99 @@
-body{
-    font-family: monospace;
-    color: 	rgb(56,56,56);
+body {
+  font-family: monospace;
+  color: rgb(56, 56, 56);
 }
 
-button{
-    border-style: solid;
-    border-color: red;
-    color: red;
-    padding: 15px, 32px;
-    cursor: pointer;
-    background-color: white;
+button {
+  border-style: solid;
+  border-color: red;
+  color: red;
+  padding: 15px, 32px;
+  cursor: pointer;
+  background-color: white;
 }
 
-button:active{
-    border-style: solid;
-    border-color: red;
+button:active {
+  color: white;
+  background-color: red;
 }
 
-span{
-    padding-top: 10px;
-    padding-bottom: 10px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+span {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
-#sketch-div{
-    display:flex;
-    align-items: center;
-    justify-content: center; 
+#sketch-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-#labels{
-    display:flex;
-    align-items: center;
-    justify-content: space-evenly;
+#alignment,
+#cohesion,
+#separation,
+#perception_radius {
+  flex-direction: column;
 }
 
-#sliders{
-    display:flex;
-    align-items: center;
-    justify-content: space-evenly;
-    margin-left: 100px;
-    margin-right: 100px;
+#sliders {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-left: 100px;
+  margin-right: 100px;
+  position: relative;
 }
 
-#buttons, #checkBoxes{
-    padding: 10px;
-    justify-content:flex-start;
-    margin-left: 290px;
+#buttons,
+#checkBoxes {
+  padding: 10px;
+  justify-content: flex-start;
+  margin-left: 290px;
+  position: relative;
 }
 
-input[type=range]{
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: 50px;
-    margin-right: 50px;
+input[type="range"] {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 50px;
+  margin-right: 50px;
 }
 
-h1{
-    display:flex;
-    justify-content: center;
+h1 {
+  display: flex;
+  justify-content: center;
 }
 
-footer{
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    padding: 50px;
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
 }
 
-a{
-    padding: 5px;
-    text-decoration: none;
+a {
+  padding: 5px;
+  text-decoration: none;
 }
 
-p, h2{
-    text-align: justify;
+p,
+h2 {
+  text-align: justify;
 }
 
-#text{
-    width:500px;
-    height: 700px;
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 50px;
+#text {
+  width: 500px;
+  height: 700px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 50px;
 }
